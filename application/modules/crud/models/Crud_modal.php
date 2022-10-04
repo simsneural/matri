@@ -327,38 +327,8 @@ class Crud_modal extends CI_model
 	// Sohrab
 
 
-	function fetch_all($tblname, $orderby)
-	{
-		try {
-			$this->db->initialize();
-			$this->db->select('*');
-			$this->db->from($tblname);
-			$query = $this->db->order_by($orderby);
-			$query = $this->db->get();
 
-			$result =		$query->row_array();
-			$this->db->close();
-			//	echo 	 $this->db->last_query();
-			return $result;
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $this->$e->getMessage(), "\n";
-		}
-	}
-
-	public function pravasiMigrant($limit = NULL, $start = NULL)
-	{
-		try {
-			$this->db->initialize();
-			$this->db->select('*');
-			$query = $this->db->limit($limit, $start)->from('pravasi_migrants')->order_by('mig_id desc')->get();
-			$result = $query->result_array();
-			$this->db->close();
-			//	echo $this->db->last_query();
-			return $result;
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $this->$e->getMessage(), "\n";
-		}
-	}
+	
 
 	function fetch_alls($tblname, $orderby)
 	{

@@ -1380,14 +1380,219 @@ public function tranieereports()
 		}
 	}
 
+
+	function get_city_trainee()
+	{
+
+		$state = $this->input->post('siid');
+		$cities = $this->Crud_modal->all_data_select('*', 'cities', "state_id='$state' AND status=1 ", 'name ASC');
+		echo '<option value="">---Select District---</option>';
+		foreach ($cities as $cities) {
+			$city_id = $cities['ci_id'];
+			$city_name = $cities['name'];
+			echo '<option value="' . $city_id . '">' . rtrim($city_name, ' ') . '</option>';
+		}
+	}
+
+
+	function get_block_trainee()
+	{
+		$city = $this->input->post('ci_id');
+		$block = $this->Crud_modal->all_data_select('*', 'block', "ci_id='$city'", 'block_name ASC');
+		echo '<option value="">---Select Block---</option>';
+		foreach ($block  as $block ) {
+			$block_id = $block['id'];
+			$block_nam = $block['block_name'];
+			echo '<option value="' . $block_id . '">' . rtrim($block_nam, ' ') . '</option>';
+		}
+	}
+
+	function get_sector_trainee()
+	{
+
+		$block = $this->input->post('id');
+		$sector = $this->Crud_modal->all_data_select('*', 'sector', "block_id='$block'", 'sector_name ASC');
+       //print_r($sector);
+		echo '<option value="">---Select Sector---</option>';
+		foreach ($sector  as $sector ) {
+			$sector_id = $sector['sector_id'];
+			$sector_nam = $sector['sector_name'];
+			echo '<option value="' . $sector_id . '">' . rtrim($sector_nam, ' ') . '</option>';
+		}
+	}
+
+	public function trainer_report()
+	{
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('trainer-report');
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+	}
+
+	public function menu_master()
+	{
+		$data['master_menu'] = $this->Crud_modal->fetch_all_data('*', 'master_menu', 'status=1');
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('menu-master',$data);
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+	}
+	
+	public function insert_menu_master()
+    {
+
+        try {
+
+            $createdata = array(
+				'menu_description' => $this->input->post('menu_description'),
+				'menu_route_name' => $this->input->post('menu_route_name'),
+				'creation_date' => date('Y-m-d H:i:s'),
+				'status' => $this->input->post('status'),
+            );
+			//   echo '<pre>';
+			//   print_r($createdata);exit;
+            $this->Crud_modal->data_insert('master_menu', $createdata);
+            //$this->session->set_flashdata('role_insert_message', '<div class="alert alert-info"><strong>Success!</strong> Role Master has Inserted.</div>');
+
+            redirect(base_url() . 'menu-master');
+        } catch (Exception $e) {
+
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+    }
+
+	public function edit_menu()
+	{
+
+		try {
+
+			if (($this->session->userdata('emp_id') != "" || $this->session->userdata('emp_id') != null)) {
+
+				$menu_id = $this->uri->segment(2);
+
+				$val = base64_decode(str_pad(strtr($menu_id, '-_', '+/'), strlen($menu_id) % 4, '=', STR_PAD_RIGHT));
+
+				$where = "menu_id = '$val'";
+
+				$data['master_menu'] = $this->Crud_modal->all_data_select('*', 'master_menu', $where, 'menu_id desc');
+
+				$this->load->view('temp/head');
+
+				$this->load->view('temp/heder');
+				$this->load->view('edit-menu', $data);
+				$this->load->view('temp/sidebar');
+
+				$this->load->view('temp/footer');
+			} else {
+
+				redirect(base_url() . 'login', 'refresh');
+			}
+		} catch (Exception $e) {
+
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+	}
+	public function add_menu_master()
+	{
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('add-menu-master');
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+	}
+
+	public function sub_menu_master()
+	{
+		$field="sm.*,mm.menu_description";
+      	$table_name="master_sub_menu sm";
+      	$join1[0]="master_menu mm";
+      	$join1[1]="mm.menu_id=sm.menu_id";
+      	$where="sm.status=1";
+      	$data['master_sub_menu'] = $this->Crud_modal->fetch_data_by_one_table_join($field,$table_name,$join1,$where);
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('sub-menu-master',$data);
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+	}
+
+	public function add_submenu()
+	{
+		$data['master_menu'] = $this->Crud_modal->fetch_all_data('*', 'master_menu', 'status=1');
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('add-submenu',$data);
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+	}
+
+	public function insert_sub_menu_master()
+    {
+        try {
+            $createdata = array(
+				'menu_id' => $this->input->post('menu_description'),
+				'sub_menu_description' => $this->input->post('sub_menu_description'),
+				'sub_menu_route' => $this->input->post('sub_menu_route'),
+				'creation_date' => date('Y-m-d H:i:s'),
+				'status' => $this->input->post('status'),
+            );
+            $this->Crud_modal->data_insert('master_sub_menu', $createdata);
+            $this->session->set_flashdata('master_sub_menu_insert_message', '<div class="alert alert-info"><strong>Success!</strong> Sub Menu Master has Inserted.</div>');
+            redirect(base_url() . 'sub-menu-master');
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+    }
+	
 	public function trainer_master()
 	{
+		
 		$this->load->view('temp/head');
 		$this->load->view('temp/heder');
 		$this->load->view('trainer-master');
 		$this->load->view('temp/sidebar');
 		$this->load->view('temp/footer');
 	}
+	public function add_trainer_master()
+	{
+		$data['states'] = $this->Crud_modal->fetch_all_data('*', 'states', 'status=1');
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('add-trainer-master',$data);
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+	}
+
+	public function insert_trainer_master()
+    {
+
+        try {
+
+            $createdata = array(
+				'trainer_name' => $this->input->post('trainer_name'),
+				'trainer_contact' => $this->input->post('trainer_contact'),
+				'trainer_gender' => $this->input->post('trainer_gender'),
+				// 'trainer_email' => $this->input->post('trainer_email'),
+				'sid' => $this->input->post('sid'),
+				'ci_id' => $this->input->post('name'),
+                'block_id' => $this->input->post('block_id'),
+				'sector_id' => $this->input->post('sector_name'),
+				'creation_date' => date('Y-m-d H:i:s'),
+				'status' => $this->input->post('status'),
+            );
+			//   echo '<pre>';
+			//   print_r($createdata);exit;
+            $this->Crud_modal->data_insert('trainer-master', $createdata);
+            //$this->session->set_flashdata('role_insert_message', '<div class="alert alert-info"><strong>Success!</strong> Role Master has Inserted.</div>');
+
+            redirect(base_url() . 'trainer-master');
+        } catch (Exception $e) {
+
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+    }
 	
 	public function traniee_reports()
 	{

@@ -64,7 +64,8 @@
                             <span class="sidebar-menu-text">Master Setting</span>
                         </a>
                         <ul class="slide-menu" style="margin-left: 30px; font-size:13px;">
-
+                        <li class="sub_li"><a href="<?php echo base_url(); ?>menu-master" class="slide-item text-white"> Menu Master</a></li>
+                        <li class="sub_li"><a href="<?php echo base_url(); ?>sub-menu-master" class="slide-item text-white"> Sub Menu  Master </a></li>
                             <li class="sub_li"><a href="<?php echo base_url(); ?>role-master" class="slide-item text-white"> Role Master </a></li>
                             <!-- <li><a href="self-task-daily-report" class="slide-item"> Self Task Daily Report</a></li> -->
                             <li class="sub_li"><a href="<?php echo base_url();?>permission" class="slide-item text-white"> Permission Master</a></li>
@@ -76,9 +77,10 @@
 							<li class="sub_li"><a href="<?php echo base_url();?>district" class="slide-item text-white"> District</a></li>
                             <li class="sub_li"><a href="<?php echo base_url();?>block" class="slide-item text-white">Block</a></li>
 							 <li class="sub_li"><a href="<?php echo base_url();?>sector" class="slide-item text-white">Sector</a></li>
-							 <li class="sub_li"><a href="<?php echo base_url();?>sub-sector" class="slide-item text-white">Sub-Sector</a></li>
+							 <li class="sub_li"><a href="<?php echo base_url();?>sub-sector" class="slide-item text-white">Sub Health Center</a></li>
                             
                             <li class="sub_li"><a href="<?php echo base_url();?>employee-master" class="slide-item text-white">Employee Master </a></li>
+							<li class="sub_li"><a href="<?php echo base_url();?>trainer-master" class="slide-item text-white">Trainer Master </a></li>
 							 <li class="sub_li"><a href="<?php echo base_url();?>trainee-master" class="slide-item text-white"> Trainee Master </a></li>
 							  <!-- <li class="sub_li"><a href="<?php echo base_url();?>mapping-trainer-anms" class="slide-item text-white"> Trainer Mapping </a></li> -->
                               <li class="sub_li"><a href="<?php echo base_url();?>trainee-transfer" class="slide-item text-white"> Trainee Transfer </a></li>
@@ -151,7 +153,7 @@
 							<!--<li class="sub_li"><a href="#" class="slide-item2 text-white">Pre-Test & Post-Test </a></li>
 							<li class="sub_li"><a href="post-test.php" class="slide-item1 text-white">Post-Test</a></li>
                             <li class="sub_li"><a href="#" class="slide-item1 text-white">Mapping of Question</a></li>-->
-                            <li class="sub_li"><a href="<?php echo base_url();?>trainer-master" class="slide-2 text-white">Trainer
+                            <li class="sub_li"><a href="<?php echo base_url();?>trainer-report" class="slide-2 text-white">Trainer
                                     Report</a></li>
                             <li class="sub_li"><a href="<?php echo base_url();?>traniee-reports" class="slide-item1 text-white">Trainee
                                     Report</a>

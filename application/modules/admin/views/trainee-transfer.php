@@ -15,10 +15,10 @@
     <div class="container-fluid page__container">
         <div class="card card-form mb-3 ">
             <div class="card-body">
-            <b>From</b>
+                <b>From</b>
                 <form>
                     <div class="row">
-                       
+
                         <div class="col-md-2">
                             <label>
                                 <b>
@@ -38,7 +38,7 @@
 
 
 
-                        
+
                         <div class="col-md-2">
                             <label>
                                 <b>
@@ -72,14 +72,14 @@
                         <div class="col-md-2">
                             <label>
                                 <b>
-                                Sub Health Center
+                                    Sub Health Center
                                 </b>
                             </label>
                             <select class="form-control" name="sub_sector_name" id="sub_sector_idss">
                                 <option value=""> Select Sub Sector</option>
                             </select>
                         </div>
-                       
+
                         <div class="col-md-2 mt-4">
                             <button type="submit" class="btn btn-primary">
                                 Search
@@ -91,14 +91,14 @@
         </div>
         <div class="card card-form mb-3 ">
             <div class="card-body">
-            <b>To Whom</b>
+                <b>To Whom</b>
                 <form>
                     <div class="row">
-                        
-                       
+
+
                         <div class="col-md-4">
-                        <input type="radio" id="html" name="fav_language" value="HTML">
-                            
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+
                             <label>
                                 <b>
                                     Trainer
@@ -118,8 +118,8 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                        <input type="radio" id="html" name="fav_language" value="HTML">
-                            
+                            <input type="radio" id="html" name="fav_language" value="HTML">
+
                             <label>
                                 <b>
                                     Trainee
@@ -138,7 +138,7 @@
                                 <option value="7">Dileshwari Netam</option>
                             </select>
                         </div>
-                       
+
                     </div>
                 </form>
             </div>
@@ -148,14 +148,14 @@
             <div class="card-body">
                 <form>
                     <div class="row">
-                       
+
                         <div class="col-md-2">
                             <label>
                                 <b>
                                     State
                                 </b>
                             </label>
-                            <select class="form-control" name="sid" id="sid" required>
+                            <select class="form-control" name="siid" id="siid" required>
                                 <option value=""> Select States</option>
                                 <?php foreach ($states as $st) { ?>
                                 <option value="<?php echo $st['sid']; ?>"><?php echo $st['name']; ?>
@@ -169,7 +169,7 @@
                                     District
                                 </b>
                             </label>
-                            <select class="form-control" name="name" id="city_idss">
+                            <select class="form-control" name="name" id="city_trainee">
                                 <option value="">City/District</option>
                             </select>
                         </div>
@@ -179,7 +179,7 @@
                                     Block
                                 </b>
                             </label>
-                            <select class="form-control" name="block_id" id="block_idss1">
+                            <select class="form-control" name="block_id" id="block_trainee">
                                 <option value=""> Select Block</option>
                             </select>
                         </div>
@@ -189,21 +189,21 @@
                                     Sector
                                 </b>
                             </label>
-                            <select class="form-control" name="sector_name" id="sector_idss1">
+                            <select class="form-control" name="sector_name" id="sector_trainee">
                                 <option value=""> Select Sector</option>
                             </select>
                         </div>
                         <div class="col-md-2">
                             <label>
                                 <b>
-                                Sub Health Center
+                                    Sub Health Center
                                 </b>
                             </label>
                             <select class="form-control" name="sub_sector_name" id="sub_sector_idss1">
-                                <option value=""> Select  Sub Health Center</option>
+                                <option value=""> Select Sub Health Center</option>
                             </select>
                         </div>
-                        
+
                         <div class="col-md-2 mt-4">
                             <button type="submit" class="btn btn-primary">
                                 Transefer
@@ -214,7 +214,7 @@
             </div>
         </div>
 
-      
+
 
     </div>
 </div>
@@ -232,100 +232,6 @@ $(document).ready(function() {
     });
 });
 </script>
-
-
-
-<!-- <div id="modal-signup" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="px-3">
-                   
-                    <form action="#">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">State Name </label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Uttar Pradesh</option>
-                                <option>Punjab </option>
-                                <option>Uttarakhand</option>
-                                <option>Jammu & Kashmir </option>
-
-                            </select>
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleFormControlSelect1">District Name </label>
-                                       <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Agra</option>
-                                        <option>Aligarh </option>
-										<option>PrayagRaj</option>
-                                        <option>Ambedkar Nagar </option>
-      
-                                          </select>
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleFormControlSelect1">Block Name </label>
-                                       <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Uttar Pradesh</option>
-                                        <option>Punjab </option>
-										<option>Uttarakhand</option>
-                                        <option>Jammu & Kashmir  </option>
-      
-                                          </select>
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleFormControlSelect1">Sector Name </label>
-                        <select class="form-control" name="sid" id="sid">
-                                 <option value="">Sector</option> 
-                                <option value="1">Vishrampuri </option>
-                                 <option value="1">Sonabal </option> 
-                                 <option value="1">Singanpur </option> 
-                                 <option value="1">	Shampur </option> 
-                                 <option value="1">	Salna </option> 
-                                 <option value="1">Randhna </option> 
-                                 <option value="1">Pharasgaon </option> 
-                                 <option value="1">Mardapal </option> 
-                                 <option value="1">Makdi</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Sub Sector Name </label>
-                        <select class="form-control" name="sid" id="sid">
-                                 <option value="">Sector</option> 
-                                <option value="1">Vishrampuri </option>
-                                 <option value="1">Sonabal </option> 
-                                 <option value="1">Singanpur </option> 
-                                 <option value="1">	Shampur </option> 
-                                 <option value="1">	Salna </option> 
-                                 <option value="1">Randhna </option> 
-                                 <option value="1">Pharasgaon </option> 
-                                 <option value="1">Mardapal </option> 
-                                 <option value="1">Makdi</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                        <label for="exampleFormControlSelect1"> Trainer Name </label>
-                        <select class="form-control" name="sid" id="sid">
-                                 <option value="">Trainer Name</option> 
-                                <option value="1">Vishrampuri </option>
-                                 <option value="1">Sonabal </option> 
-                                 <option value="1">Singanpur </option> 
-                                 <option value="1">	Shampur </option> 
-                                 <option value="1">	Salna </option> 
-                                 <option value="1">Randhna </option> 
-                                 <option value="1">Pharasgaon </option> 
-                                 <option value="1">Mardapal </option> 
-                                 <option value="1">Makdi</option>
-                            </select>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="btn btn-primary" type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div> 
-        </div> 
-    </div> 
-</div>  -->
 
 <script>
 $("#sid").change(function() {
@@ -385,9 +291,9 @@ $("#block_idss").change(function() {
 
 <script>
 $("#sector_idss").change(function() {
-    var sector_id  = $(this).val();
+    var sector_id = $(this).val();
     datastr = {
-        sector_id:sector_id 
+        sector_id: sector_id
     };
     $.ajax({
         url: '<?php echo base_url() ?>get-sub-sector',
@@ -404,19 +310,19 @@ $("#sector_idss").change(function() {
 
 
 
-
 <script>
-$("#sid").change(function() {
-    var sid = $(this).val();
+$("#siid").change(function() {
+    var siid = $(this).val();
     datastr = {
-        sid: sid
+        siid: siid
     };
     $.ajax({
-        url: '<?php echo base_url() ?>get-city',
+        url: '<?php echo base_url() ?>get-city-trainee',
         type: 'post',
         data: datastr,
-        success: function(response) { //alert (response);
-            $("#city_idss").html(response);
+        success: function(response) { 
+           // alert (response);
+            $("#city_trainee").html(response);
             $('select').selectpicker('refresh');
         }
     });
@@ -424,17 +330,18 @@ $("#sid").change(function() {
 </script>
 
 <script>
-$("#city_idss").change(function() {
+$("#city_trainee").change(function() {
     var ci_id = $(this).val();
     datastr = {
         ci_id: ci_id
     };
     $.ajax({
-        url: '<?php echo base_url() ?>get-block',
+        url: '<?php echo base_url() ?>get-block-trainee',
         type: 'post',
         data: datastr,
-        success: function(response) { //alert (response);
-            $("#block_idss1").html(response);
+        success: function(response) { 
+            alert (response);
+            $("#block_trainee").html(response);
             $('select').selectpicker('refresh');
         }
     });
@@ -443,39 +350,25 @@ $("#city_idss").change(function() {
 
 
 <script>
-$("#block_idss").change(function() {
+$("#block_trainee").change(function() {
     var id = $(this).val();
     datastr = {
         id: id
     };
     $.ajax({
-        url: '<?php echo base_url() ?>get-sector',
+        url: '<?php echo base_url() ?>get_sector_trainee',
         type: 'post',
         data: datastr,
         success: function(response) {
-            //alert (response);
-            $("#sector_idss1").html(response);
+            alert (response);
+            $("#sector_trainee").html(response);
             $('select').selectpicker('refresh');
         }
     });
 });
 </script>
 
-<script>
-$("#sector_idss").change(function() {
-    var sector_id  = $(this).val();
-    datastr = {
-        sector_id:sector_id 
-    };
-    $.ajax({
-        url: '<?php echo base_url() ?>get-sub-sector',
-        type: 'post',
-        data: datastr,
-        success: function(response) {
-            //alert (response);
-            $("#sub_sector_idss1").html(response);
-            $('select').selectpicker('refresh');
-        }
-    });
-});
-</script>
+
+
+
+
