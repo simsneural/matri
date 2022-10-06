@@ -50,108 +50,25 @@
                     </div>
                    <div class="container-fluid page__container">
                    <div class="row">
-						<div class="col-md-12">
-													</div>
+						<div class="col-md-12"></div>
 						<div class="col-md-6">
 							<div class="main-card mb-3 card">
-								<div class="card-body">
-									<h5 class="card-title">Mapping Role-Permission</h5>
-										<ul id="myUL">
-											<li>
-												<span class="caret">
-													<input type="checkbox" value="1" name="main_menu_id[]">
-													Master Setting </span>
-												<ul class="nested">
-													<li>
-													<input type="checkbox" value="1$1" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Role Master
-													</li>
-													<li>
-									                  <input type="checkbox" value="1$2" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Permission Master
-													</li>
-													<li>
-													<input type="checkbox" value="1$3" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Mapping Role & Permission
-													</li>
-													<li>
-													<input type="checkbox" value="1$4" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Designation
-													</li>
-													<li>
-													<input type="checkbox" value="1$5" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">State
-													</li>
-													<li>
-													<input type="checkbox" value="1$5" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">District
-													</li>
-													<li>
-													<input type="checkbox" value="1$5" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Block
-													</li>
-													<li>
-													<input type="checkbox" value="1$5" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Sector
-													</li>
-													<li>
-													<input type="checkbox" value="1$5" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Sub-Sector
-													</li>
-													<li>
-													<input type="checkbox" value="1$5" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Employee Master
-													</li>
-												</ul>
-											</li>
-										</ul>
-										<ul id="myUL">
-											<li>
-												<span class="caret">
-													<input type="checkbox" value="1" name="main_menu_id[]">
-													Assessment Bank </span>
-												<ul class="nested">
-													<li>
-													<input type="checkbox" value="1$1" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Category Master
-													</li>
-													<li>
-									                  <input type="checkbox" value="1$2" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Question/Answer Master
-													</li>
-													<li>
-													<input type="checkbox" value="1$3" id="sub_menu_id1.1" name="sub_menu_id[]" data-val="1-1-1">Mapping of Question
-													</li>
-													<li>
-													
-												</ul>
-											</li>
-										</ul>
-										<ul id="myUL">
-											<li>
-												<span class="caret">
-													<input type="checkbox" value="1" name="main_menu_id[]">
-													Assessment Formula </span>
-											</li>
-										</ul>
-										<ul id="myUL">
-											<li>
-												<span class="caret">
-													<input type="checkbox" value="1" name="main_menu_id[]">
-													Result Review </span>
-											</li>
-										</ul>
-										<ul id="myUL">
-											<li>
-												<span class="caret">
-													<input type="checkbox" value="1" name="main_menu_id[]">
-													Reminders </span>
-											</li>
-										</ul>
-										<ul id="myUL">
-											<li>
-												<span class="caret">
-													<input type="checkbox" value="1" name="main_menu_id[]">
-													Reports </span>
-											</li>
-										</ul>
-										<ul id="myUL">
-											<li>
-												<span class="caret">
-													<input type="checkbox" value="1" name="main_menu_id[]">
-													Analytical Dashboard </span>
-											</li>
-										</ul>
-								</div>
-
+							<div class="card-body"><h5 class="card-title">Mapping Role-Permission</h5>
+						<?php $i=1; $j=1; $k=3; $sub=1; $sub_sub=1; $mi=1; $mj=1; $mk=1;
+						foreach ($master_menu as $menu) { ?>
+						<ul id="myUL">
+						   <li><span class="caret"><input type="checkbox" value="<?php echo $menu['menu_id']; ?>" name="main_menu_id[]"> <?php echo $menu['menu_description'];?> </span>
+							<ul class="nested">
+							<?php $menuid = $menu['menu_id']; 
+								foreach($master_sub_menu as $submenu){
+								if($submenu['menu_id']==$menuid){ ?>
+							  <li> <input type="checkbox" value="<?php echo $menuid."$".$submenu['sub_menu_id']; ?>" id="sub_menu_id<?php echo $i.".".$sub;?>" name="sub_menu_id[]" data-val="<?php echo $mi.'-'.$mj.'-'.$mk;?>"> <?php echo $submenu['sub_menu_description']; ?></li>
+								<?php } } ?>
+							</ul>
+						  </li>
+						</ul>
+						<?php } ?>
+						</div>
 							</div>
 
 						</div>
@@ -172,15 +89,10 @@
 										<div class=" position-relative form-group">
 
 											<select class="form-control" name="group_type">
-
 												<option value="">Select Role</option>
-
-												
-													<option value="1">Admin</option>
-
-													<option value="2">Asst. Admin</option>
-
-												
+												<?php foreach($master_role as $mr){?>
+												<option value="<?php echo $mr['role_id']; ?>"><?php echo $mr['role_name']; ?></option>
+												<?php } ?>
 											</select>
 
 										</div>
@@ -190,37 +102,12 @@
 
 
 									<div class="col-md-6">
-
-										<label>Choose Permissions:</label>
-
-										
+										<label>Choose Permissions:</label>								
+										<?php foreach($master_permission as $mp){?>
 											<div class="checkbox checkbox-primary checkbox-info" style="margin-left:20px">
-
-												<input type="checkbox" value="1" name="Permission[]"><label style="margin-left: 10px;">Create</label>
-
+												<input type="checkbox" value="<?php echo $mp['permission_id']; ?>" name="Permission[]"><label style="margin-left: 10px;"><?php echo $mp['permission_description']; ?></label>
 											</div>
-
-										
-											<div class="checkbox checkbox-primary checkbox-info" style="margin-left:20px">
-
-												<input type="checkbox" value="2" name="Permission[]"><label style="margin-left: 10px;">View</label>
-
-											</div>
-
-										
-											<div class="checkbox checkbox-primary checkbox-info" style="margin-left:20px">
-
-												<input type="checkbox" value="3" name="Permission[]"><label style="margin-left: 10px;">Delete</label>
-
-											</div>
-
-										
-											<div class="checkbox checkbox-primary checkbox-info" style="margin-left:20px">
-
-												<input type="checkbox" value="4" name="Permission[]"><label style="margin-left: 10px;">Update</label>
-
-											</div>
-
+										<?php } ?>
 									</div>
 									<input type="button" value="Submit" class="mt-1 btn btn-primary mt-3 pull-right" id="map_button" />
 
@@ -246,25 +133,14 @@
             </tr>
         </thead>
         <tbody>
+		<?php $i=1; foreach($master_role as $mr){ ?>
             <tr>
-                <td>1</td>
-                <td>Admin</td>
-				 <td>Active</td>
-                <td><a href="#"><i class="fa fa-edit"></i></a></td>
-               
+                <td><?php echo $i++; ?></td>
+                <td><?php echo $mr['role_name']; ?></td>
+				<td><?php echo $mr['status']==1?'Active':'Inactive'?></td>
+                <td><a href="<?php echo base_url().'edit-map-role-permission/'.rtrim(strtr(base64_encode($mr['role_id']), '+/', '-_'), '='); ?>"><i class="fa fa-edit"></i></a></td>
             </tr>
-			
-			 <tr>
-                <td>2</td>
-                <td>Supervisor</td>
-				 <td>Inactive</td>
-                <td><a href="#"><i class="fa fa-edit"></i></a></td>
-               
-            </tr>
-			
-			 
-			 
-
+		<?php } ?>
         </tbody>
     </table>
 	</div>

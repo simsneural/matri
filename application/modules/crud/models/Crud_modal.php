@@ -12,7 +12,6 @@ class Crud_modal extends CI_model
 	{
 		try {
 			$this->db->initialize();
-
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$this->db->select('*');

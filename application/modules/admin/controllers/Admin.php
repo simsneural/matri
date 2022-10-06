@@ -337,12 +337,62 @@ public function update_permission_master()
 	
 public function mapping()
 	{
+		if (($this->session->userdata('emp_id') != "" || $this->session->userdata('emp_id') != null)) {
+		$where = "status = '1'";
+		$data['master_menu'] = $this->Crud_modal->all_data_select('*', 'master_menu', $where, 'menu_id ASC');
+		$where1 = "status = '1'";
+		$data['master_sub_menu'] = $this->Crud_modal->all_data_select('*', 'master_sub_menu', $where1, 'sub_menu_id ASC');
+		// $where2 = "status = '1'";
+		// $data['master_sub_sub_menu'] = $this->Crud_modal->all_data_select('*', 'master_sub_sub_menu', $where2, 'sub_sub_menu_id ASC');
+		$where3 = "status = '1'";
+		$data['master_role'] = $this->Crud_modal->all_data_select('*', 'master_role', $where3, 'role_id ASC');
+		$where4 = "status = '1'";
+		$data['master_permission'] = $this->Crud_modal->all_data_select('*', 'master_permission', $where4, 'permission_id ASC');
+		$where5 = "status = '1'";
+		$data['mapping_role_data'] = $this->Crud_modal->all_data_select('*', 'mapping_role_permission_master_menu', $where5, 'role_id ASC');
+		
 		$this->load->view('temp/head');
 		$this->load->view('temp/heder');
-		$this->load->view('mapping-role-permission');
+		$this->load->view('mapping-role-permission',$data);
 		$this->load->view('temp/sidebar');
 		$this->load->view('temp/footer');
+		} 
+		else 
+		{
+			redirect(base_url() . 'login', 'refresh');
+		}
+
 	}
+
+	public function  edit_map_role_permission()
+	{
+		try {
+			if (($this->session->userdata('emp_id') != "" || $this->session->userdata('emp_id') != null)) {
+				$val = base64_decode(str_pad(strtr($this->uri->segment(2), '-_', '+/'), strlen($this->uri->segment(2)) % 4, '=', STR_PAD_RIGHT));
+				$where = "status = '1'";
+				$data['master_menu'] = $this->Crud_modal->all_data_select('*', 'master_menu', $where, 'menu_id ASC');
+				$where1 = "status = '1'";
+				$data['master_sub_menu'] = $this->Crud_modal->all_data_select('*', 'master_sub_menu', $where1, 'sub_menu_id ASC');
+				$where3 = "status = '1'";
+				$data['master_role'] = $this->Crud_modal->all_data_select('*', 'master_role', $where3, 'role_id ASC');
+				$where4 = "status = '1'";
+				$data['master_permission'] = $this->Crud_modal->all_data_select('*', 'master_permission', $where4, 'permission_id ASC');
+				$where5 = "status = '1' and role_id = '$val'";
+				$data['mapping_role_data'] = $this->Crud_modal->all_data_select('*', 'mapping_role_permission_master_menu', $where5, 'role_id ASC');
+				$this->load->view('temp/head');
+				$this->load->view('temp/heder');
+				$this->load->view('edit-map-role-permission',$data);
+				$this->load->view('temp/sidebar');
+				$this->load->view('temp/footer');
+			} 
+			else {
+				redirect(base_url() . 'login', 'refresh');
+			}
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+	}
+
 public function state()
 
 	{
