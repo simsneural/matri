@@ -393,6 +393,58 @@ public function mapping()
 		}
 	}
 
+	public function edit_map_role_permission_form_save()
+	{
+		try {
+			if (($this->session->userdata('emp_id') != "" || $this->session->userdata('emp_id') != null)) {
+				$menu_count = count($this->input->post('main_menu_id'));
+				$sub_count = count($this->input->post('sub_menu_id'));
+				$menu_id = $this->input->post('main_menu_id');
+				$role_id = $this->input->post('update_role_id');
+				$sub_id = $this->input->post('sub_menu_id');
+				$loopj_count = 0;
+				$loopk_count = 0;
+				for ($i = 0; $i <= $menu_count - 1; $i++) {
+					$m = $menu_id[$i];
+					$string[$i] = $m . "|";
+					for ($j = 0; $j <= $sub_count - 1; $j++) {
+						$subb_id = explode('$', $sub_id[$j]);
+						$s = $subb_id[0];
+						if ($m == $s) {
+							$string[$i] .= $sub_id[$j] . "|";
+						}
+					}
+					$string[$i] = rtrim($string[$i], '|');
+				}
+				$access_master_menu = implode('&&', $string);
+				$role = $this->input->post('group_type');
+				$perm = $this->input->post('Permission');
+				$permission = implode('|', $perm);
+				$field = array(
+					'permission_id' => $permission,
+					'menu_master_id' => $access_master_menu,
+					'modification_date' => date('Y-m-d H:i:s')
+				);
+				$where = "role_id = '$role_id'";
+				$tblname = 'mapping_role_permission_master_menu';
+				$data = $this->Crud_modal->update_data($where, $tblname, $field);
+				// $orderby= 'role_id ASC';
+				// $where1 = "role_id = '$role' and status=1";
+				// $data1 = $this->Crud_modal->all_data_select('*','mapping_role_permission_master_menu',$where1,$orderby);
+				if ($data) {
+					$this->session->set_flashdata('master_map_message', '<div class="alert alert-info"><strong>Success!</strong> Mapping data has been Updated.</div>');
+					redirect(base_url() . 'mapping-role-permission');
+				} else {
+					echo 0;
+				}
+			} else {
+				redirect(base_url() . 'login', 'refresh');
+			}
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+	}
+
 public function state()
 
 	{

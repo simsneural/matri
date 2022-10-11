@@ -1,9 +1,6 @@
 <?php  $base_url=base_url().'admin_assets/';?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-
-<!-- Mirrored from educate.frontted.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Jul 2022 06:26:03 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,36 +47,6 @@
     <!-- Vector Maps -->
     <link type="text/css" href="<?php echo $base_url;?>vendor/jqvmap/jqvmap.min.css" rel="stylesheet">
 
-    <!--<script src="<?php echo $base_url;?>js/jquery.min.js"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('.slide-menu').hide();
-        $("#side-menu").click(function() {
-            $(".slide-menu").slideToggle("slow");
-        });
-    });
-</script>
-
-
-<script>
-    $(document).ready(function() {
-        $('.slide-menu1').hide();
-        $("#side-menu1").click(function() {
-            $(".slide-menu1").slideToggle("slow");
-        });
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('.slide-menu2').hide();
-        $("#side-menu2").click(function() {
-            $(".slide-menu2").slideToggle("slow");
-        });
-    });
-</script>
-
-
-
+    <script src="<?php echo $base_url;?>js/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 </head>

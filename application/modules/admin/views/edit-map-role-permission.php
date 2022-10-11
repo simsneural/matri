@@ -1,112 +1,48 @@
+<?php $base_url = base_url() . 'admin_assets/'; ?>
 <style>
-
 ul, #myUL {
-
   list-style-type: none;
-
 }
-
-
-
 #myUL {
-
   margin: 0;
-
   padding: 0;
-
 }
-
-
-
 .caret {
-
   cursor: pointer;
-
-  
-
   -webkit-user-select: none; /* Safari 3.1+ */
-
   -moz-user-select: none; /* Firefox 2+ */
-
   -ms-user-select: none; /* IE 10+ */
-
   user-select: none;
-
 }
-
-
-
 .caret::before {
-
   content: "\25B6";
-
   color: black;
-
   display: inline-block;
-
   margin-right: 6px;
-
 }
-
-
-
 .caret-down::before {
-
-	
-
   -ms-transform: rotate(90deg); /* IE 9 */
-
   -webkit-transform: rotate(90deg); /* Safari */'
-
   transform: rotate(90deg);  
-
 }
-
-
-
 .nested {
-
   display: none;
-
 }
-
-
-
 .active {
-
   display: block;
-
-  
-
 }
-
 </style>
 
-
-
-<div id="content-page" class="content-page">
-
+<div class="mdk-header-layout__content mdk-header-layout__content--fullbleed mdk-header-layout__content--scrollable page" style="padding-top: 60px;">
         <div class="container-fluid">
-
             <div class="row">
-
                 <div class="col-lg-12">
-
                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-
-                        <div class="iq-card-header">
-
-                            <div class="card-header-tab card-header">
-
-                                <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
-
-                                    <i class="header-icon fa fa-cube mr-3 text-muted opacity-6"> </i>Mapping Roles-Permissions Masters
-
-                                </div>
-
-                            </div>
-
+					<div class="page__heading border-bottom">
+                        <div class="container-fluid page__container d-flex align-items-center">
+                            <h5 class="mb-0"> Mapping Role-Permission</h5>
                         </div>
+                    </div>
 
 						
 

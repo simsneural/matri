@@ -149,12 +149,7 @@
             </div>
        
         </div>
-		
-	
-		
-     
-
-   <script>
+<script>
    $(document).ready(function () {
   $("#dataTable").DataTable({
     searching: false,
@@ -163,35 +158,35 @@
     lengthChange: false
   });
 });
-   </script>
-   
-   <script>
-		var toggler = document.getElementsByClassName("caret");
-		var i;
-		for (i = 0; i < toggler.length; i++) {
-			toggler[i].addEventListener("click", function() {
-				this.parentElement.querySelector(".nested").classList.toggle("active");
-				this.classList.toggle("caret-down");
-			});
-		}
-		$(document).ready(function() {
-			$("#map_button").click(function() {
-				var url = "https://pravasibandhu.org/map-role-permission-form-save"; // the script where you handle the form input.
-				$.ajax({
-					type: "POST",
-					url: url,
-					data: $("#map_role_form").serialize(), // serializes the form's elements.
-					success: function(data) {
-						if (data == 0) {
-							$('.alert').css('display', 'block');
-							$('.alert').fadeIn().fadeOut(2000);
-						}
-						if (data == 1) {
-							location.reload();
-						}
-					}
-				});
-				e.preventDefault(); // avoid to execute the actual submit of the form
-			});
-		});
-	</script>
+</script>
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+$(document).ready(function (){
+	$("#map_button").click(function (){			
+		  var url = "<?php echo base_url() ?>map-role-permission-form-save"; // the script where you handle the form input.
+			$.ajax({
+				   type: "POST",
+				   url: url,
+				   data: $("#map_role_form").serialize(), // serializes the form's elements.
+				   success: function(data)
+				   {
+					 if(data == 0){
+					   $('.alert').css('display','block');
+					   $('.alert').fadeIn().fadeOut(2000);
+					 }
+					 if(data == 1){
+						location.reload();
+					 } 
+				   }
+				 });
+			e.preventDefault(); // avoid to execute the actual submit of the form.
+	});
+});
+</script>  
