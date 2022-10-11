@@ -1352,6 +1352,46 @@ public function addtrainee()
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
     }
+
+	public function training_master()
+	{
+	try{
+		if($this->session->userdata('emp_id') != "" || $this->session->userdata('emp_id') != null)
+		{
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('training-master');
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+		}
+		else{
+			redirect(base_url() . 'login', 'refresh');
+		}
+	}
+	catch (Exception $e){
+		echo 'Caught exception: ',  $e->getMessage(), "\n";
+	}
+	}
+
+	public function add_training_master()
+	{
+	try{
+		if($this->session->userdata('emp_id') != "" || $this->session->userdata('emp_id') != null)
+		{
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('add-training-master');
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+		}
+		else{
+			redirect(base_url() . 'login', 'refresh');
+		}
+	}
+	catch (Exception $e){
+		echo 'Caught exception: ',  $e->getMessage(), "\n";
+	}
+	}
 	
 	
 public function mappingtrainer()

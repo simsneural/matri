@@ -87,7 +87,8 @@ $route['insert_sub_menu_master'] = 'admin/Admin/insert_sub_menu_master';
 $route['insert_menu_master'] = 'admin/Admin/insert_menu_master';
 $route['import_csv'] = 'admin/Admin/import_csv';
 $route['insert_import_cvs'] = 'admin/Admin/insert_import_cvs';
-
+$route['training-master'] = 'admin/Admin/training_master';
+$route['add-training-master'] = 'admin/Admin/add_training_master';
 //send smsm API
 $route['send-sms']='api/Api/sendSMS';
   

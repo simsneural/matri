@@ -5,7 +5,7 @@
 
     <div class="page__heading border-bottom">
         <div class="container-fluid page__container">
-            <h5> Add Module Master </h5>
+            <h5> Add Training Master </h5>
         </div>
     </div>
 
