@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2022 at 10:38 AM
+-- Generation Time: Oct 12, 2022 at 09:34 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -960,7 +960,7 @@ CREATE TABLE `mapping_role_permission_master_menu` (
 --
 
 INSERT INTO `mapping_role_permission_master_menu` (`role_id`, `permission_id`, `menu_master_id`, `portlet_id`, `status`, `creation_date`, `modification_date`) VALUES
-(1, '1|2|3|4', '1|1$4|1$5|1$6|1$7|1$8|1$9|1$10|1$12|1$13|1$14&&2|2$1|2$2|2$3|2$11&&3|3$15|3$22|3$16|3$17&&4|4$18|4$19|4$20|4$21', '1', 1, '2022-10-06 12:48:15', '2022-10-11 13:02:07'),
+(1, '1|2|3|4', '1|1$4|1$5|1$6|1$7|1$8|1$9|1$10|1$12|1$13|1$14&&2|2$1|2$2|2$3|2$11&&3|3$22|3$15|3$16|3$17&&4|4$18|4$19|4$20|4$21', '1', 1, '2022-10-06 12:48:15', '2022-10-11 13:02:07'),
 (2, '1|2|3|4', '1|1$13', '1', 1, '2022-10-06 12:48:15', '2022-10-11 12:44:59');
 
 -- --------------------------------------------------------
@@ -1006,24 +1006,6 @@ INSERT INTO `master_menu` (`menu_id`, `menu_description`, `menu_route_name`, `st
 (2, 'User Authentication', '#', 1, '2022-10-04 12:50:15', NULL),
 (3, 'Assessment Bank', '#', 1, '2022-10-04 12:50:43', NULL),
 (4, 'Reports', '#', 1, '2022-10-04 12:51:02', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `master_modules`
---
-
-CREATE TABLE `master_modules` (
-  `maid` int(11) NOT NULL,
-  `assignment_name` varchar(100) NOT NULL,
-  `assignment_description` longtext NOT NULL,
-  `ma_status` int(11) NOT NULL DEFAULT 1,
-  `created_date` datetime NOT NULL,
-  `created_by` int(5) NOT NULL,
-  `number_of_level` int(11) NOT NULL,
-  `modification_date` datetime NOT NULL,
-  `image` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
@@ -1119,16 +1101,84 @@ INSERT INTO `master_sub_menu` (`sub_menu_id`, `menu_id`, `sub_menu_description`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `master_trainee_modules`
+--
+
+CREATE TABLE `master_trainee_modules` (
+  `maid` int(11) NOT NULL,
+  `training_id` int(5) NOT NULL,
+  `assignment_name` varchar(100) NOT NULL,
+  `assignment_description` longtext NOT NULL,
+  `ma_status` int(11) NOT NULL DEFAULT 1,
+  `created_date` datetime NOT NULL,
+  `created_by` int(5) NOT NULL,
+  `number_of_level` int(11) NOT NULL,
+  `modification_date` datetime NOT NULL,
+  `image` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `master_trainee_modules`
+--
+
+INSERT INTO `master_trainee_modules` (`maid`, `training_id`, `assignment_name`, `assignment_description`, `ma_status`, `created_date`, `created_by`, `number_of_level`, `modification_date`, `image`) VALUES
+(8, 1, 'उप स्वास्थ केंद्र का नक्शा तैयार करना', 'उप स्वास्थ केंद्र का नक्शा तैयार करना', 1, '2022-10-12 08:25:12', 1, 1, '2022-10-12 08:25:12', ''),
+(9, 1, 'माइक्रोप्लान कैसे बनाएं- भाग 1', 'माइक्रोप्लान कैसे बनाएं- भाग 1', 1, '2022-10-12 08:25:12', 1, 1, '2022-10-12 08:25:12', ''),
+(10, 1, 'माइक्रोप्लान कैसे बनाएं -भाग 2', 'माइक्रोप्लान कैसे बनाएं -भाग 2', 1, '2022-10-12 08:39:11', 1, 1, '2022-10-12 08:39:11', ''),
+(11, 1, 'राष्ट्रीय टीकाकरण  सारणी को समझना', 'राष्ट्रीय टीकाकरण  सारणी को समझना', 1, '2022-10-12 08:39:11', 1, 1, '2022-10-12 08:39:11', ''),
+(12, 1, 'लेफ्ट आउट और ड्रॉप आउट बच्चों  की ट्रैकिंग', 'लेफ्ट आउट और ड्रॉप आउट बच्चों  की ट्रैकिंग', 1, '2022-10-12 08:40:15', 1, 1, '2022-10-12 08:40:15', ''),
+(13, 1, 'कवरेज मॉनीटरिंग चार्ट तैयार करना ', 'कवरेज मॉनीटरिंग चार्ट तैयार करना ', 1, '2022-10-12 08:40:15', 1, 1, '2022-10-12 08:40:15', ''),
+(14, 1, 'टीकाकरण आँकड़ों का सही संधारण', 'टीकाकरण आँकड़ों का सही संधारण', 1, '2022-10-12 08:41:29', 1, 1, '2022-10-12 08:41:29', ''),
+(15, 1, 'टीकाकरण आँकड़ों की सही रिपोर्टिंग', 'टीकाकरण आँकड़ों की सही रिपोर्टिंग', 1, '2022-10-12 08:41:29', 1, 1, '2022-10-12 08:41:29', ''),
+(16, 1, 'खुली वॉयल नीति', 'खुली वॉयल नीति', 1, '2022-10-12 08:42:21', 1, 1, '2022-10-12 08:42:21', ''),
+(17, 1, 'सुरक्षित इंजेक्शन की विधि', 'सुरक्षित इंजेक्शन की विधि', 1, '2022-10-12 08:42:21', 1, 1, '2022-10-12 08:42:21', ''),
+(18, 1, 'पारस्परिक संवाद कौशल (IPC) को बेहतर बनाना', 'पारस्परिक संवाद कौशल (IPC) को बेहतर बनाना', 1, '2022-10-12 08:43:14', 1, 1, '2022-10-12 08:43:14', ''),
+(19, 1, 'जच्चा बच्चा कार्ड', 'जच्चा बच्चा कार्ड', 1, '2022-10-12 08:43:14', 1, 1, '2022-10-12 08:43:14', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_trainer_modules`
+--
+
+CREATE TABLE `master_trainer_modules` (
+  `maid` int(11) NOT NULL,
+  `training_id` int(5) NOT NULL,
+  `assignment_name` varchar(100) NOT NULL,
+  `assignment_description` longtext NOT NULL,
+  `ma_status` int(11) NOT NULL DEFAULT 1,
+  `created_date` datetime NOT NULL,
+  `created_by` int(5) NOT NULL,
+  `number_of_level` int(11) NOT NULL,
+  `modification_date` datetime NOT NULL,
+  `image` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `master_trainings`
 --
 
 CREATE TABLE `master_trainings` (
   `training_id` int(10) NOT NULL,
-  `modules_id` varchar(100) NOT NULL,
+  `training_name` varchar(100) NOT NULL,
+  `training_desc` text NOT NULL,
   `status` int(2) NOT NULL,
   `creation_date` date NOT NULL,
   `modifiication_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `master_trainings`
+--
+
+INSERT INTO `master_trainings` (`training_id`, `training_name`, `training_desc`, `status`, `creation_date`, `modifiication_date`) VALUES
+(1, 'Training 1', 'Training 1', 1, '2022-10-12', '2022-10-12'),
+(2, 'Training 2', 'Training 2', 1, '2022-10-12', '2022-10-12'),
+(3, 'Training 3', 'Training 3', 1, '2022-10-12', '2022-10-12'),
+(4, 'Training 4', 'Training 4', 1, '2022-10-12', '2022-10-12'),
+(5, 'Training 5', 'Training 5', 1, '2022-10-12', '2022-10-12');
 
 -- --------------------------------------------------------
 
@@ -2136,12 +2186,6 @@ ALTER TABLE `master_menu`
   ADD PRIMARY KEY (`menu_id`);
 
 --
--- Indexes for table `master_modules`
---
-ALTER TABLE `master_modules`
-  ADD PRIMARY KEY (`maid`);
-
---
 -- Indexes for table `master_permission`
 --
 ALTER TABLE `master_permission`
@@ -2158,6 +2202,24 @@ ALTER TABLE `master_role`
 --
 ALTER TABLE `master_sub_menu`
   ADD PRIMARY KEY (`sub_menu_id`);
+
+--
+-- Indexes for table `master_trainee_modules`
+--
+ALTER TABLE `master_trainee_modules`
+  ADD PRIMARY KEY (`maid`);
+
+--
+-- Indexes for table `master_trainer_modules`
+--
+ALTER TABLE `master_trainer_modules`
+  ADD PRIMARY KEY (`maid`);
+
+--
+-- Indexes for table `master_trainings`
+--
+ALTER TABLE `master_trainings`
+  ADD PRIMARY KEY (`training_id`);
 
 --
 -- Indexes for table `mcq`
@@ -2254,12 +2316,6 @@ ALTER TABLE `master_menu`
   MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `master_modules`
---
-ALTER TABLE `master_modules`
-  MODIFY `maid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT for table `master_permission`
 --
 ALTER TABLE `master_permission`
@@ -2276,6 +2332,24 @@ ALTER TABLE `master_role`
 --
 ALTER TABLE `master_sub_menu`
   MODIFY `sub_menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `master_trainee_modules`
+--
+ALTER TABLE `master_trainee_modules`
+  MODIFY `maid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `master_trainer_modules`
+--
+ALTER TABLE `master_trainer_modules`
+  MODIFY `maid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `master_trainings`
+--
+ALTER TABLE `master_trainings`
+  MODIFY `training_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `mcq`

@@ -18,20 +18,20 @@
                 <thead class="bg-primary text-white">
                     <tr>
                         <th>S.No</th>
-                        <th> Training Name</th>
-                        <th> Modules Name</th>
+                        <th>Training Name</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                <?php $sr=1; foreach ($trainings as $training) {?>
                     <tr>
-                        <td>1</td>
-                        <td>Training 1 </td>
-                        <td>Module 1,Module 2 </td>
-                        <td>Inactive</td>
+                        <td><?php echo $sr++;?></td>
+                        <td><?php echo $training['training_name']?></td>
+                        <td><?php echo $training['status']==1?'Active':'Inactive';?></td>
                         <td><a href="#"><i class="fa fa-edit"></i></a></td>
                     </tr>
+                <?php } ?>
                 </tbody>
             </table>
         </div>

@@ -1358,9 +1358,10 @@ public function addtrainee()
 	try{
 		if($this->session->userdata('emp_id') != "" || $this->session->userdata('emp_id') != null)
 		{
+		$data['trainings'] = $this->Crud_modal->all_data_select('*', 'master_trainings', '1=1', 'training_id ASC');
 		$this->load->view('temp/head');
 		$this->load->view('temp/heder');
-		$this->load->view('training-master');
+		$this->load->view('training-master',$data);
 		$this->load->view('temp/sidebar');
 		$this->load->view('temp/footer');
 		}
