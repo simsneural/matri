@@ -5,7 +5,7 @@
                         <div class="container-fluid page__container d-flex align-items-center">
                             <h5 class="mb-0"> Module Master</h5>
                             <div class="ml-auto d-flex align-items-center">
-                              	<div class="caret-right pull-right"><a href="add-module-master.php" class="btn btn-primary"><i class="fa fa-plus"></i> Add  Module</a></div>			
+                              	<div class="caret-right pull-right"><a href="<?php echo base_url();?>add-module-master" class="btn btn-primary"><i class="fa fa-plus"></i> Add  Module</a></div>			
                                 
                             </div>
                         </div>

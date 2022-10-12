@@ -54,6 +54,7 @@ $route['add-trainee-master'] = 'admin/Admin/addtrainee';
 $route['insert_trainee_master'] = 'admin/Admin/insert_trainee_master';
 $route['mapping-trainer-anms'] = 'admin/Admin/mappingtrainer';
 $route['module-master'] = 'admin/Admin/modulemaster';
+$route['add-module-master'] = 'admin/Admin/add_module_master';
 $route['question-answer-master'] = 'admin/Admin/questionanswer';
 $route['add-question-answer-master'] = 'admin/Admin/addquestionanswer';
 $route['pre-test'] = 'admin/Admin/pretest';

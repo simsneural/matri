@@ -15,7 +15,7 @@
                 <div class="col-lg-6 card-form__body card-body">
                     <form>
                         <div class="form-group">
-                            <label for="exampleInputEmail1"> Module Name</label>
+                            <label for="exampleInputEmail1"> Training Name</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Module Name">
                         </div>
                         <div class="form-group">

@@ -1411,6 +1411,15 @@ public function modulemaster()
 		$this->load->view('temp/sidebar');
 		$this->load->view('temp/footer');
 	}
+
+	public function add_module_master()
+	{
+		$this->load->view('temp/head');
+		$this->load->view('temp/heder');
+		$this->load->view('add-module-master');
+		$this->load->view('temp/sidebar');
+		$this->load->view('temp/footer');
+	}
 	
 public function questionanswer()
 	{
